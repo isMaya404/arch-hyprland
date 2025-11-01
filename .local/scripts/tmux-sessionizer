@@ -1,0 +1,54 @@
+#!/usr/bin/env bash
+
+# Primeagen's tmux-sessionizer: https://github.com/ThePrimeagen/.dotfiles/blob/master/bin/.local/scripts/tmux-sessionizer
+
+search_dirs=(
+    "$HOME/.config"
+    "$HOME/dev/projs"
+    "$HOME/dev/playground"
+    "$HOME/dev/repos"
+    "$HOME/dev/langs"
+    "$HOME/dev/refs"
+    "$HOME/dev/materials"
+    "$HOME/.local"
+    "$HOME/.local/share"
+    "$HOME/backup"
+    "$HOME/Downloads"
+)
+
+if [[ $# -eq 1 ]]; then
+    selected=$1
+else
+    find_cmd=()
+    for dir in "${search_dirs[@]}"; do
+        find_cmd+=("$dir")
+    done
+
+    # NOTE: gonna test this for a while. uses fd instead of find
+    selected=$(fd . "${find_cmd[@]}" --min-depth 1 --max-depth 1 -t d -E .git | sed "s|^$HOME/||" | fzf)
+    # selected=$(find "${find_cmd[@]}" -mindepth 1 -maxdepth 1 -type d -not -path '*/.git*' | sed "s|^$HOME/||" | fzf)
+fi
+
+if [[ -z $selected ]]; then
+    exit 0
+fi
+
+selected_path="$HOME/$selected"
+selected_name=$(basename "$selected_path" | tr . _)
+tmux_running=$(pgrep tmux)
+
+if [[ -z $TMUX ]] && [[ -z $tmux_running ]]; then
+    tmux new-session -s "$selected_name" -c "$selected_path"
+    exit 0
+fi
+
+if ! tmux has-session -t="$selected_name" 2> /dev/null; then
+    tmux new-session -ds "$selected_name" -c "$selected_path"
+fi
+
+if [[ -z $TMUX ]]; then
+    tmux attach -t "$selected_name"
+else
+    tmux switch-client -t "$selected_name"
+fi
+

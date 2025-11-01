@@ -1,0 +1,46 @@
+" For dbeaver
+
+" vim core bindings remap 
+
+noremap ; :
+noremap , ;
+noremap : ,
+
+noremap h p
+noremap j h 
+noremap k j
+noremap l k
+noremap p l
+
+noremap H P
+noremap J H
+"noremap K K  
+noremap L M
+noremap P L
+
+noremap b n
+noremap n b
+
+noremap B N
+noremap N B
+
+noremap o y
+noremap m o
+noremap y m 
+
+noremap O Y
+noremap M O
+noremap Y J 
+
+" settings
+
+set autoindent
+set ignorecase
+set smartcase
+set incsearch
+
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
+
+set clipboard=unnamedplus

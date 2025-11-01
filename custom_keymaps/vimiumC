@@ -1,0 +1,57 @@
+unmap <f1>
+unmap d
+unmap h
+unmap X
+unmap ^
+unmap <c-e>
+unmap <c-y>
+unmap <a-c>
+unmap <a-v>
+unmap <a-t>
+unmap gt
+unmap gT
+unmap zH
+unmap zL
+unmap 1
+unmap 2
+
+# Scrolling
+map j scrollLeft
+map k scrollDown
+map l scrollUp
+map p scrollRight
+
+map <a-k> scrollFullPageDown
+map <a-l> scrollFullPageUp
+# Useful if selecting large hunks of texts with mouse.
+# while right hand is occupied with mouse, left hand for 1 & 2
+map 1 scrollPageDown
+map 2 scrollPageUp
+
+map zJ scrollToLeft # Scroll all the way to the left
+map zP scrollToRight # Scroll all the way to the right
+
+map K previousTab
+map L nextTab
+map , visitPreviousTab
+
+# Tabs
+map XJ closeTabsOnLeft
+map XP closeTabsOnRight
+map u restoreTab
+map U restoreGivenTab
+map <c-s-x> discardTab
+# Open link in a new tab & switch to it 
+map sf LinkHints.activateOpenInNewForegroundTab
+
+# History
+map J goBack
+map P goForward
+map h Vomnibar.activateHistory
+map H Vomnibar.activateHistoryInNewTab
+
+map sW moveTabToNextWindow
+map W moveTabToNewWindow
+
+map * findSelected
+map # findSelectedBackwards

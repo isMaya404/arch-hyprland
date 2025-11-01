@@ -1,0 +1,18 @@
+##### librewolf/firefox css customizations 
+toolkit.legacyUserProfileCustomizations.stylesheets = true
+    then: about:support > profile directroy > grab the path (e.g. $HOME/.librewolf/5f44qy9i.default-default) 
+```bash
+     cd $HOME/.librewolf/5f44qy9i.default-default
+     mkdir chrome && nvim chrome/userChrome.css
+```
+
+```css
+/* remove tabliss on new tab search bar */
+#identity-box.extensionPage
+  #identity-icon[tooltiptext="Loaded by extension: Tabliss"]
+  ~ #identity-icon-label {
+  display: none !important;
+}
+
+```
+

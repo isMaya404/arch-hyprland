@@ -1,0 +1,96 @@
+{
+  "telemetry.telemetryLevel": "off",
+  "workbench.colorTheme": "Aura Dark", // Keeping the last defined value
+  "vim.easymotion": true,
+  "vim.incsearch": true,
+  "vim.useSystemClipboard": true,
+  "vim.useCtrlKeys": true,
+  "vim.hlsearch": true,
+  "vscode-neovim.useConfigFile": true,
+  "vscode-neovim.configFilePath": "/home/your-user/.config/
+  "extensions.experimental.affinity": {
+    // "vscodevim.vim": 1,
+    "asvetliakov.vscode-neovim": 1
+  },
+  "git.openRepositoryInParentFolders": "always",
+  "editor.fontLigatures": true,
+  "editor.fontFamily": "JetBrainsMono NerdFont",
+  // "zenMode.fullScreen": true,
+  "zenMode.centerLayout": false,
+  "zenMode.hideLineNumbers": false,
+  "zenMode.hideStatusBar": false,
+  "zenMode.hideActivityBar": true,
+  // "workbench.startupEditor": "none",
+  "window.menuBarVisibility": "hidden",
+  "editor.minimap.enabled": false,
+  "files.autoSave": "afterDelay",
+  "editor.cursorSmoothCaretAnimation": "on",
+  "symbols.hidesExplorerArrows": false,
+  "workbench.activityBar.location": "hidden",
+  "workbench.startupEditor": "none",
+  "workbench.iconTheme": "moxer-icons",
+  "workbench.editor.pinnedTabSizing": "compact",
+  "workbench.editor.tabSizing": "shrink",
+    // Search
+    "search.smartCase": true,
+    "search.useIgnoreFiles": false,
+    "search.exclude": {
+      "**/vendor/*": true,
+      "**/public/*": true,
+      "**/node_modules": true,
+      "**/dist": true,
+      "**/package-lock.json": true,
+      "**/yarn.lock": true,
+    },
+    // Code
+    // Include "-" in word selection.
+    "editor.wordSeparators": "`~!@#%^&*()=+[{]}\\|;:'\",.<>/?",
+    "editor.wordWrap": "on",
+    "editor.tabCompletion": "on",
+    // Files to display
+  "files.enableTrash": false,
+  "files.exclude": {
+    ".cache-loader/": true,
+    ".gitattributes": true,
+    ".gitkeep": true,
+    ".travis.yml": true,
+    ".vercel": true,
+    ".vscode/": true,
+    "coverage": true,
+    "acf-json": true,
+    "backend/vendor": true,
+    "CODE_OF_CONDUCT.md": true,
+    "config": false,
+    "LICENSE.md": true,
+    "package-lock.json": true,
+    "phpcs.xml": true,
+    // For more minimal option
+    ".editorconfig": true,
+    "prettier.config.js": true,
+    "**/README.md": true,
+    "yarn.lock": true,
+    "node_modules/": true,
+    ".gitignore": true,
+    ".output/node_modules/": false,
+    // And even more ultra minimal
+    ".nuxt": true,
+    ".output": true,
+    "package.json": true,
+    "tsconfig.json": true,
+  },
+  "editor.lineNumbers": "relative",
+// tmux x vscode
+"terminal.integrated.profiles.osx": {
+  //...existing profiles...
+  "tmux-shell": {
+    "path": "tmux",
+    "args": [
+      "new-session",
+      "-A",
+      "-s",
+      "vscode:${workspaceFolder}"
+    ]
+  }
+},
+"terminal.integrated.defaultProfile.osx": "tmux-shell"
+}

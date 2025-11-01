@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+
+set -e
+
+GREEN='\033[0;32m'
+YELLOW='\033[1;33m'
+NC='\033[0m'
+
+# echo -e "${YELLOW}Deleting old 'Pre-update snapshot' if it exists...${NC}"
+
+# List snapshot names with "Pre-update" in the comment
+PREV_SNAPSHOTS=$(sudo timeshift --list | grep -B1 "Comments: Pre-update" | grep "Snapshot:" | cut -d' ' -f2)
+
+# Delete each match
+for snap in $PREV_SNAPSHOTS; do
+    echo -e "${YELLOW}Deleting snapshot: $snap${NC}"
+    sudo timeshift --delete --snapshot "$snap"
+done
+
+echo -e "${GREEN}Creating new Timeshift snapshot...${NC}"
+sudo timeshift --create --comments "Pre-update snapshot" --tags D
+
+echo -e "${GREEN}Running system update...${NC}"
+paru -Syu 
