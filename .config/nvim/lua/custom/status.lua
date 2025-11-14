@@ -67,7 +67,7 @@ _G.diag = function()
 end
 
 _G.statusline = function()
-    local path = vim.fn.expand '%:t' -- :f
+    local path = vim.fn.expand '%:f' -- :t
     if path == '' then
         path = '[No Name]'
     end

@@ -459,7 +459,7 @@ return {
     -- enhances the native commentstring on react
     {
         'folke/ts-comments.nvim',
-        enabled =true,
+        enabled = true,
         filetypes = { 'typescriptreact', 'javascriptreact' },
         opts = {
             lang = {
